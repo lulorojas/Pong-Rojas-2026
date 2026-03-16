@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://biounwts37ba7"]
+
+[node name="Node2D" type="Node2D" unique_id=987801682]
+
+[node name="Pelota" type="CharacterBody2D" parent="." unique_id=2031700553]
+
+[node name="ColorRect" type="ColorRect" parent="Pelota" unique_id=1790270791]
+offset_left = 38.0
+offset_top = 24.0
+offset_right = 78.0
+offset_bottom = 64.0
