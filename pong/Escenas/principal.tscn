@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://csk084tesadl6"]
+
+[ext_resource type="Texture2D" uid="uid://c3ptaymkusx4" path="res://canchita.webp" id="1_1vygb"]
+[ext_resource type="Script" uid="uid://b1t0d4tlgeoxw" path="res://Escenas/paleta_izquierda.gd" id="1_ahmf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w77o"]
+size = Vector2(10, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahmf4"]
+size = Vector2(1024, 2.5)
+
+[node name="Principal" type="Node2D" unique_id=1573690812]
+
+[node name="Canchita" type="Sprite2D" parent="." unique_id=141546163]
+position = Vector2(576.24994, 323.37497)
+scale = Vector2(1.9125001, 1.611875)
+texture = ExtResource("1_1vygb")
+
+[node name="Paleta izquierda" type="CharacterBody2D" parent="." unique_id=1207880403]
+script = ExtResource("1_ahmf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paleta izquierda" unique_id=50356747]
+position = Vector2(161, 325)
+shape = SubResource("RectangleShape2D_6w77o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paleta izquierda" unique_id=1849804578]
+
+[node name="ColorRect" type="ColorRect" parent="Paleta izquierda" unique_id=1684840291]
+offset_left = 153.0
+offset_top = 272.0
+offset_right = 167.0
+offset_bottom = 372.0
+color = Color(0, 0, 0, 1)
+
+[node name="Pared Arriba" type="StaticBody2D" parent="." unique_id=1016028345]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared Arriba" unique_id=342980372]
+position = Vector2(580, 51)
+shape = SubResource("RectangleShape2D_ahmf4")
+
+[node name="Pared abajo" type="StaticBody2D" parent="." unique_id=467156640]
+position = Vector2(145, 857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared abajo" unique_id=2030419202]
+position = Vector2(436, -264)
+shape = SubResource("RectangleShape2D_ahmf4")
