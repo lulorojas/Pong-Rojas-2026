@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://biounwts37ba7"]
 
+[ext_resource type="Script" uid="uid://bxahwq2n0gma6" path="res://Escenas/pelota.gd" id="1_duk3h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvfdg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8tx67"]
+load_path = "res://.godot/imported/00494f9e044d6f67fd38bc7f787312ab-removebg-preview.png-79c7d33ccb197f7d48c36ecde5b4b2b7.ctex"
+
 [node name="Node2D" type="Node2D" unique_id=987801682]
 
 [node name="Pelota" type="CharacterBody2D" parent="." unique_id=2031700553]
+script = ExtResource("1_duk3h")
 
-[node name="ColorRect" type="ColorRect" parent="Pelota" unique_id=1790270791]
-offset_left = 38.0
-offset_top = 24.0
-offset_right = 78.0
-offset_bottom = 64.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota" unique_id=1665887264]
+position = Vector2(47, 34)
+shape = SubResource("CircleShape2D_rvfdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pelota" unique_id=1768418441]
+position = Vector2(47, 34)
+scale = Vector2(0.07152778, 0.06944437)
+texture = SubResource("CompressedTexture2D_8tx67")

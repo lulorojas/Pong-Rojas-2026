@@ -3,12 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://c3ptaymkusx4" path="res://canchita.webp" id="1_1vygb"]
 [ext_resource type="Script" uid="uid://b1t0d4tlgeoxw" path="res://Escenas/paleta_izquierda.gd" id="1_ahmf4"]
 [ext_resource type="Script" uid="uid://cwd16ntcfcres" path="res://Escenas/paleta_derecha.gd" id="3_6w77o"]
+[ext_resource type="PackedScene" uid="uid://biounwts37ba7" path="res://Escenas/Pelota.tscn" id="4_waexs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w77o"]
 size = Vector2(20, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahmf4"]
 size = Vector2(1024, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waexs"]
+size = Vector2(170, 530)
+
+[sub_resource type="FontVariation" id="FontVariation_waexs"]
 
 [node name="Principal" type="Node2D" unique_id=1573690812]
 
@@ -17,7 +23,7 @@ position = Vector2(576.24994, 323.37497)
 scale = Vector2(1.9125001, 1.611875)
 texture = ExtResource("1_1vygb")
 
-[node name="Paleta derecha" type="CharacterBody2D" parent="." unique_id=1085796466]
+[node name="Paleta derecha" type="CharacterBody2D" parent="." unique_id=1085796466 groups=["paletas"]]
 position = Vector2(817, -2)
 script = ExtResource("3_6w77o")
 
@@ -34,7 +40,7 @@ offset_right = 171.0
 offset_bottom = 385.0
 color = Color(0, 0, 0, 1)
 
-[node name="Paleta izquierda" type="CharacterBody2D" parent="." unique_id=1207880403]
+[node name="Paleta izquierda" type="CharacterBody2D" parent="." unique_id=1207880403 groups=["paletas"]]
 script = ExtResource("1_ahmf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paleta izquierda" unique_id=50356747]
@@ -62,3 +68,35 @@ position = Vector2(145, 857)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pared abajo" unique_id=2030419202]
 position = Vector2(436, -264)
 shape = SubResource("RectangleShape2D_ahmf4")
+
+[node name="Node2D" parent="." unique_id=987801682 instance=ExtResource("4_waexs")]
+position = Vector2(557, 269)
+
+[node name="Arco_izq" type="Area2D" parent="." unique_id=2043998629]
+position = Vector2(-232, 428)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arco_izq" unique_id=2056598002]
+position = Vector2(1414, -103)
+shape = SubResource("RectangleShape2D_waexs")
+
+[node name="Arco_der" type="Area2D" parent="." unique_id=1340527383]
+position = Vector2(-116, 214)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arco_der" unique_id=1822967358]
+position = Vector2(95, 113)
+shape = SubResource("RectangleShape2D_waexs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1387697011]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1872263455]
+offset_left = 527.0
+offset_top = 55.0
+offset_right = 627.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_waexs")
+theme_override_font_sizes/font_size = 50
+text = "0 - 0"
+
+[connection signal="body_entered" from="Arco_izq" to="Paleta derecha" method="_on_arco_izquierdo_body_entered"]
+[connection signal="body_entered" from="Arco_der" to="Paleta derecha" method="_on_arco_derecho_body_entered"]
