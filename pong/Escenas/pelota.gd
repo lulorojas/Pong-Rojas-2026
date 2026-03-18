@@ -43,17 +43,24 @@ func randomize_direction():
 	direction = direction.normalized()
 
 func actualizar_interfaz():
+	# Si alguien llegó a 5, reseteamos todo el marcador
+	if score_izq >= 5 or score_der >= 5:
+		score_izq = 0
+		score_der = 0
+	
 	if label_marcador:
 		label_marcador.text = str(score_izq) + " - " + str(score_der)
 
-# --- ESTAS FUNCIONES SE ACTIVAN CON LOS AREA2D ---
+# --- CONEXIONES DE LOS ARCOS (Corregidas) ---
 
 func _on_arco_izquierdo_body_entered(body):
-	if body == self: # Si la pelota entró al arco izquierdo
-		score_der += 1
+	if body == self: 
+		# Si entra en el arco de la IZQUIERDA, el punto es para la DERECHA
+		score_izq += 1 
 		reset_pelota()
 
 func _on_arco_derecho_body_entered(body):
-	if body == self: # Si la pelota entró al arco derecho
-		score_izq += 1
+	if body == self: 
+		# Si entra en el arco de la DERECHA, el punto es para la IZQUIERDA
+		score_der += 1 
 		reset_pelota()

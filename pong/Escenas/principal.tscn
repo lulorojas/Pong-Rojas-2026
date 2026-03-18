@@ -3,13 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://c3ptaymkusx4" path="res://canchita.webp" id="1_1vygb"]
 [ext_resource type="Script" uid="uid://b1t0d4tlgeoxw" path="res://Escenas/paleta_izquierda.gd" id="1_ahmf4"]
 [ext_resource type="Script" uid="uid://cwd16ntcfcres" path="res://Escenas/paleta_derecha.gd" id="3_6w77o"]
-[ext_resource type="PackedScene" uid="uid://biounwts37ba7" path="res://Escenas/Pelota.tscn" id="4_waexs"]
+[ext_resource type="Script" uid="uid://bxahwq2n0gma6" path="res://Escenas/pelota.gd" id="5_4q36c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w77o"]
 size = Vector2(20, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahmf4"]
 size = Vector2(1024, 2.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvfdg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8tx67"]
+load_path = "res://.godot/imported/00494f9e044d6f67fd38bc7f787312ab-removebg-preview.png-79c7d33ccb197f7d48c36ecde5b4b2b7.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_waexs"]
 size = Vector2(170, 530)
@@ -69,8 +74,18 @@ position = Vector2(145, 857)
 position = Vector2(436, -264)
 shape = SubResource("RectangleShape2D_ahmf4")
 
-[node name="Node2D" parent="." unique_id=987801682 instance=ExtResource("4_waexs")]
+[node name="Pelota" type="CharacterBody2D" parent="." unique_id=2031700553]
 position = Vector2(557, 269)
+script = ExtResource("5_4q36c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota" unique_id=1665887264]
+position = Vector2(47, 34)
+shape = SubResource("CircleShape2D_rvfdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pelota" unique_id=1768418441]
+position = Vector2(47, 34)
+scale = Vector2(0.07152778, 0.06944437)
+texture = SubResource("CompressedTexture2D_8tx67")
 
 [node name="Arco_izq" type="Area2D" parent="." unique_id=2043998629]
 position = Vector2(-232, 428)
@@ -88,7 +103,7 @@ shape = SubResource("RectangleShape2D_waexs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1387697011]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1872263455]
+[node name="Marcador" type="Label" parent="CanvasLayer" unique_id=1872263455]
 offset_left = 527.0
 offset_top = 55.0
 offset_right = 627.0
@@ -98,5 +113,5 @@ theme_override_fonts/font = SubResource("FontVariation_waexs")
 theme_override_font_sizes/font_size = 50
 text = "0 - 0"
 
-[connection signal="body_entered" from="Arco_izq" to="Paleta derecha" method="_on_arco_izquierdo_body_entered"]
-[connection signal="body_entered" from="Arco_der" to="Paleta derecha" method="_on_arco_derecho_body_entered"]
+[connection signal="body_entered" from="Arco_izq" to="Pelota" method="_on_arco_izquierdo_body_entered"]
+[connection signal="body_entered" from="Arco_der" to="Pelota" method="_on_arco_derecho_body_entered"]
