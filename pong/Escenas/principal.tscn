@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b1t0d4tlgeoxw" path="res://Escenas/paleta_izquierda.gd" id="1_ahmf4"]
 [ext_resource type="Script" uid="uid://cwd16ntcfcres" path="res://Escenas/paleta_derecha.gd" id="3_6w77o"]
 [ext_resource type="Script" uid="uid://bxahwq2n0gma6" path="res://Escenas/pelota.gd" id="5_4q36c"]
+[ext_resource type="PackedScene" uid="uid://b0b57hnisldhh" path="res://Escenas/menupausa.tscn" id="5_6py53"]
+[ext_resource type="Script" uid="uid://c85v1is0ibi88" path="res://Escenas/menupausa.gd" id="6_g556e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w77o"]
 size = Vector2(20, 120)
@@ -30,6 +32,7 @@ texture = ExtResource("1_1vygb")
 
 [node name="Paleta derecha" type="CharacterBody2D" parent="." unique_id=1085796466 groups=["paletas"]]
 position = Vector2(817, -2)
+motion_mode = 1
 script = ExtResource("3_6w77o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paleta derecha" unique_id=1809663773]
@@ -46,6 +49,9 @@ offset_bottom = 385.0
 color = Color(0, 0, 0, 1)
 
 [node name="Paleta izquierda" type="CharacterBody2D" parent="." unique_id=1207880403 groups=["paletas"]]
+scale = Vector2(1.1001809, 0.9934296)
+motion_mode = 1
+safe_margin = 0.001
 script = ExtResource("1_ahmf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paleta izquierda" unique_id=50356747]
@@ -76,6 +82,7 @@ shape = SubResource("RectangleShape2D_ahmf4")
 
 [node name="Pelota" type="CharacterBody2D" parent="." unique_id=2031700553]
 position = Vector2(557, 269)
+safe_margin = 0.001
 script = ExtResource("5_4q36c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota" unique_id=1665887264]
@@ -112,6 +119,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_waexs")
 theme_override_font_sizes/font_size = 50
 text = "0 - 0"
+
+[node name="Menu_pausa" parent="." unique_id=2135593149 instance=ExtResource("5_6py53")]
+script = ExtResource("6_g556e")
 
 [connection signal="body_entered" from="Arco_izq" to="Pelota" method="_on_arco_izquierdo_body_entered"]
 [connection signal="body_entered" from="Arco_der" to="Pelota" method="_on_arco_derecho_body_entered"]

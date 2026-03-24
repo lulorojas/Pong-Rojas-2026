@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://baaylu1673c1l"]
+
+[ext_resource type="Script" uid="uid://cbv2k22tml8t1" path="res://menu.gd" id="1_lnt83"]
+
+[node name="Menu" type="Control" unique_id=1207125059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lnt83")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2029533779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Botones_inicio" type="VBoxContainer" parent="." unique_id=1072743980]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Local" type="Button" parent="Botones_inicio" unique_id=1473639012]
+layout_mode = 2
+text = "JUEGO LOCAL"
+
+[node name="IA" type="Button" parent="Botones_inicio" unique_id=2100793616]
+layout_mode = 2
+text = "CONTRA IA"
+
+[node name="Dificultades" type="VBoxContainer" parent="." unique_id=1723315428]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Facil" type="Button" parent="Dificultades" unique_id=1422420859]
+layout_mode = 2
+text = "FACIL"
+
+[node name="Medio" type="Button" parent="Dificultades" unique_id=541351877]
+layout_mode = 2
+text = "MEDIO"
+
+[node name="Dificil" type="Button" parent="Dificultades" unique_id=657244609]
+layout_mode = 2
+text = "DIFICIL"
+
+[node name="Volver_box" type="VBoxContainer" parent="." unique_id=1494835099]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 69.0
+grow_vertical = 0
+
+[node name="Volver" type="Button" parent="Volver_box" unique_id=1854123904]
+layout_mode = 2
+size_flags_vertical = 8
+text = "VOLVER"
+
+[connection signal="pressed" from="Botones_inicio/Local" to="." method="_on_local_pressed"]
+[connection signal="pressed" from="Botones_inicio/IA" to="." method="_on_ia_pressed"]
+[connection signal="pressed" from="Volver_box/Volver" to="." method="_on_volver_pressed"]

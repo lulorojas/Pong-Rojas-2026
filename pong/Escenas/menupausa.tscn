@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b0b57hnisldhh"]
+
+[ext_resource type="Script" uid="uid://c85v1is0ibi88" path="res://Escenas/menupausa.gd" id="1_l1320"]
+
+[node name="Menu_pausa" type="CanvasLayer" unique_id=2135593149]
+process_mode = 3
+script = ExtResource("1_l1320")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=487279278]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.80784315)
+
+[node name="Botones_pausa" type="VBoxContainer" parent="ColorRect" unique_id=1713887651]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -50.5
+offset_right = 72.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continuar" type="Button" parent="ColorRect/Botones_pausa" unique_id=1884825093]
+layout_mode = 2
+text = "CONTINUAR"
+
+[node name="Reiniciar" type="Button" parent="ColorRect/Botones_pausa" unique_id=1182301704]
+layout_mode = 2
+text = "REINICIAR"
+
+[node name="Salir" type="Button" parent="ColorRect/Botones_pausa" unique_id=18006435]
+layout_mode = 2
+text = "VOLVER AL MENU"
+
+[connection signal="pressed" from="ColorRect/Botones_pausa/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/Botones_pausa/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="ColorRect/Botones_pausa/Salir" to="." method="_on_salir_pressed"]
