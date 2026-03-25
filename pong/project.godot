@@ -15,6 +15,10 @@ run/main_scene="uid://csk084tesadl6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://dfbhgooyhuwf4"
+
 [input]
 
 Subir_izquierda={

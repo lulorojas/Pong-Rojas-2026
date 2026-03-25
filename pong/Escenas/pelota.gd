@@ -6,15 +6,15 @@ extends CharacterBody2D
 
 var speed = 0.0
 var direction = Vector2.ZERO
-var start_position : Vector2 # Aquí guardamos tu posición manual
+var start_position : Vector2 
 var score_izq = 0
 var score_der = 0
 
-# Referencia al marcador
+
 @onready var label_marcador = get_node("../CanvasLayer/Marcador")
 
 func _ready():
-	# Guardamos la posición donde la pusiste vos en el editor
+	
 	start_position = position 
 	reset_pelota()
 
@@ -31,7 +31,7 @@ func apply_speed_boost():
 		speed += speed_increment
 
 func reset_pelota():
-	# Vuelve al lugar original y reinicia velocidad
+
 	position = start_position 
 	speed = initial_speed
 	randomize_direction()
@@ -51,16 +51,16 @@ func actualizar_interfaz():
 	if label_marcador:
 		label_marcador.text = str(score_izq) + " - " + str(score_der)
 
-# --- CONEXIONES DE LOS ARCOS (Corregidas) ---
+# --- 
 
 func _on_arco_izquierdo_body_entered(body):
 	if body == self: 
-		# Si entra en el arco de la IZQUIERDA, el punto es para la DERECHA
+		
 		score_izq += 1 
 		reset_pelota()
 
 func _on_arco_derecho_body_entered(body):
 	if body == self: 
-		# Si entra en el arco de la DERECHA, el punto es para la IZQUIERDA
+		
 		score_der += 1 
 		reset_pelota()

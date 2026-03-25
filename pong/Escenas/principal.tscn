@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://cwd16ntcfcres" path="res://Escenas/paleta_derecha.gd" id="3_6w77o"]
 [ext_resource type="Script" uid="uid://bxahwq2n0gma6" path="res://Escenas/pelota.gd" id="5_4q36c"]
 [ext_resource type="PackedScene" uid="uid://b0b57hnisldhh" path="res://Escenas/menupausa.tscn" id="5_6py53"]
-[ext_resource type="Script" uid="uid://c85v1is0ibi88" path="res://Escenas/menupausa.gd" id="6_g556e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w77o"]
 size = Vector2(20, 120)
@@ -121,7 +120,6 @@ theme_override_font_sizes/font_size = 50
 text = "0 - 0"
 
 [node name="Menu_pausa" parent="." unique_id=2135593149 instance=ExtResource("5_6py53")]
-script = ExtResource("6_g556e")
 
 [connection signal="body_entered" from="Arco_izq" to="Pelota" method="_on_arco_izquierdo_body_entered"]
 [connection signal="body_entered" from="Arco_der" to="Pelota" method="_on_arco_derecho_body_entered"]

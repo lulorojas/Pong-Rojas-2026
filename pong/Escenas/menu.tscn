@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baaylu1673c1l"]
 
-[ext_resource type="Script" uid="uid://cbv2k22tml8t1" path="res://menu.gd" id="1_lnt83"]
+[ext_resource type="Script" uid="uid://cbv2k22tml8t1" path="res://Escenas/menu.gd" id="1_lnt83"]
 
 [node name="Menu" type="Control" unique_id=1207125059]
 layout_mode = 3
@@ -86,4 +86,7 @@ text = "VOLVER"
 
 [connection signal="pressed" from="Botones_inicio/Local" to="." method="_on_local_pressed"]
 [connection signal="pressed" from="Botones_inicio/IA" to="." method="_on_ia_pressed"]
+[connection signal="pressed" from="Dificultades/Facil" to="." method="_on_facil_pressed"]
+[connection signal="pressed" from="Dificultades/Medio" to="." method="_on_medio_pressed"]
+[connection signal="pressed" from="Dificultades/Dificil" to="." method="_on_dificil_pressed"]
 [connection signal="pressed" from="Volver_box/Volver" to="." method="_on_volver_pressed"]
